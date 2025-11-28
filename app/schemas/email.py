@@ -30,14 +30,11 @@ class EmailRead(EmailBase):
     company_id: int
     created_at: datetime
 
-    class Config:
-        orm_mode = True
-
     model_config = {'from_attributes': True}
 
 
 class EmailSearchFilters(BaseModel):
-    content: str
+    content: Optional[str] = None
     sender: Optional[str] = None
     recipient: Optional[str] = None
     company_id: Optional[int] = None

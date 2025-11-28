@@ -16,16 +16,15 @@ class CompanyCreate(CompanyBase):
     client_id: int
 
 
+class CompanyUpdate(BaseModel):
+    name: Optional[str] = None
+    domain: Optional[str] = None
+    is_active: Optional[IsActiveEnum] = None
+
+
 class CompanyRead(CompanyBase):
-    client_id: int
-
-
-class CompanyUpdate(CompanyBase):
     id_company: int
     client_id: int
     created_at: datetime
-
-    class Config:
-        orm_mode = True
 
     model_config = {'from_attributes': True}
